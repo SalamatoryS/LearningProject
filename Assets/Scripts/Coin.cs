@@ -1,16 +1,13 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Coin : MonoBehaviour
 {
-    private void OnCollisionEnter(Collision collision)
+    public void Collected()
     {
-        
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            GameObject.Find("GameManager").GetComponent<GameManager>().UpdateCoins();
-            Destroy(gameObject);
-        }
+        GameObject.Find("GameManager").gameObject.GetComponent<GameManager>().UpdateCoins();
+        Destroy(gameObject);
     }
 }

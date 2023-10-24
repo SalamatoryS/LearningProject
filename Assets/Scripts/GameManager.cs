@@ -6,18 +6,31 @@ using TMPro;
 
 public class GameManager : MonoBehaviour
 {
-    public TextMeshProUGUI coins;
-    [SerializeField] int _coins = 4;
+    [SerializeField] TextMeshProUGUI _coins;
+    [SerializeField] AnimationCurve _curve;
+    [SerializeField] Transform _coinCollecter;
+
+    int coins = 0;
     private void Start()
     {
-        coins.text = "Осталось монет " + _coins;
+        _coins.text =coins.ToString();
     }
 
     public void UpdateCoins()
     {
-        _coins--;
-        coins.text = "Осталось монет: " + _coins;
-        if (_coins == 0)
-            coins.text = "Ты победил";
+        coins++;
+        _coins.text = coins.ToString();
+        StartCoroutine(ScaleProcess());
+    }
+
+    IEnumerator ScaleProcess()
+    {
+        for (float t = 0; t < 1f; t += Time.deltaTime)
+        {
+            float scale = _curve.Evaluate(t);
+            _coinCollecter.transform.localScale = Vector3.one * scale;
+            yield return null;
+
+        }
     }
 }
