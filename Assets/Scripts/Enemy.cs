@@ -7,6 +7,7 @@ public class Enemy : MonoBehaviour
 {
     [SerializeField] NavMeshAgent _agent;
     [SerializeField] GameObject _coin;
+    [SerializeField] AudioSource _audioSource;
 
     Transform _target;
     Animator _animator;
@@ -23,6 +24,7 @@ public class Enemy : MonoBehaviour
 
     public void Die()
     {
+        _audioSource.Play();
         _target = gameObject.transform;
         _animator.SetTrigger("Fall");
         StartCoroutine(DieProcess());
@@ -32,8 +34,8 @@ public class Enemy : MonoBehaviour
     {
         yield return new WaitForSeconds(2);
         Instantiate(_coin, gameObject.transform.position + Vector3.up/2f , transform.rotation);
-        
-        //if (_coin.GetComponent<Coin>() is Coin coin) 
+
+        //if (_coin.GetComponent<Coin>() is Coin coin)
         //{
         //    GameObject.Find("Player").gameObject.GetComponent<CoinCollecter>().CollectCoin(coin);
         //}
