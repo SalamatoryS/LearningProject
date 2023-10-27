@@ -862,8 +862,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd01c113bd2910d44badfc63179c2edc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _BrockenBox: {fileID: 3408469008932334224, guid: 63ee7239e085ed442aa4150c0023360e,
+  _brockenBox: {fileID: 3408469008932334224, guid: 63ee7239e085ed442aa4150c0023360e,
     type: 3}
+  _coin: {fileID: 7179670399425887340, guid: 8951841da5bd210469ebada1a8afaaf4, type: 3}
 --- !u!1 &7502047310319680832
 GameObject:
   m_ObjectHideFlags: 0

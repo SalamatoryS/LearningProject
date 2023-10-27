@@ -24,7 +24,7 @@ public class CoinCollecter : MonoBehaviour
     {
         Vector3 startPosition = coin.transform.position;
 
-        for (float t = 0; t < 2f; t += Time.deltaTime)
+        for (float t = 0; t < 1.5f; t += Time.deltaTime)
         {
             Vector3 screenPosition = _coinTarget.position;
             screenPosition.z = 3f;

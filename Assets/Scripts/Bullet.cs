@@ -11,5 +11,10 @@ public class Bullet : MonoBehaviour
         {
             GameObject.Find("Player").gameObject.GetComponent<CoinCollecter>().CollectCoin(coin);
         }
+
+        if(other.GetComponent<Enemy>() is Enemy enemy) 
+        {
+            enemy.Die();
+        }
     }
 }
